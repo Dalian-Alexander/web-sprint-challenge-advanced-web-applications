@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Login from "./components/Login";
 import "./styles.scss";
+import { PrivateRoute } from './components/PrivateRoute'
+import BubblePage from "./components/BubblePage";
 
 function App() {
   return (
@@ -11,8 +13,10 @@ function App() {
         <header>
           Color Picker Sprint Challenge
           <a data-testid="logoutButton" href="#">logout</a>
-        </header>
-        <Route exact path="/" component={Login} />
+        </header>  
+        <Route exact path='/' component={Login} />
+        <Route path='/login' component={Login} />
+        <PrivateRoute path='/bubblepage' component={BubblePage} />
       </div>
     </Router>
   );
